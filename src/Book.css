@@ -1,0 +1,28 @@
+.book {
+  width: 138px;
+  height: auto;
+  padding: 5px;
+  margin-bottom: 30px;
+}
+
+.book-cover {
+  box-shadow:0;
+  transition: 0.4s ease-in-out;
+}
+
+.book .book-cover:hover {
+  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.book-title {
+  color: #848484;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.book-authors {
+  margin: 5px 0 0 0;
+  color: rgba(132, 132, 132, 0.65);
+  font-size: 14px;
+}
