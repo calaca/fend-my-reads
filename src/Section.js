@@ -8,7 +8,7 @@ class Section extends Component {
 
     return (
       <section>
-        <h2 className="section-title">{this.props.text}</h2>
+        <h2 className="section-title">{this.props.shelf}</h2>
         {
           books.map(book => (
             <Book key={book.id} book={book} />

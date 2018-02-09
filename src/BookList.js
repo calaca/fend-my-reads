@@ -5,18 +5,19 @@ import './BookList.css';
 
 class BookList extends Component {
   render() {
-    const sectionTitles = [
+    const books = this.props.books;
+    const shelves = [
       {
-        id: 'currently',
-        text: 'Currently Reading'
+        name: 'wantToRead',
+        title: 'want to read'
       },
       {
-        id: 'want',
-        text: 'Want To Read'
+        name: 'currentlyReading',
+        title: 'currently reading'
       },
       {
-        id: 'read',
-        text: 'Read'
+        name: 'read',
+        title: 'read'
       }
     ];
 
@@ -25,8 +26,10 @@ class BookList extends Component {
         <Top />
         <div className="sections">
           {
-            sectionTitles.map( section => (
-              <Section text={section.text} id={section.id} key={section.id} books={this.props.books} />
+            shelves.map(shelf => (
+              <Section shelf={shelf.title} key={shelf.name}
+                books={books.filter(book => (book.shelf === shelf.name))}
+              />
             ))
           }
         </div>

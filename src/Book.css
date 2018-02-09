@@ -3,15 +3,26 @@
   height: auto;
   padding: 5px;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 .book-cover {
+  filter: grayscale(100%);
   box-shadow:0;
   transition: 0.4s ease-in-out;
 }
 
-.book .book-cover:hover {
+.book:hover .book-cover {
+  filter: grayscale(0);
   box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+}
+
+.book:hover .book-title {
+  color: #00b0af;
+}
+
+.book:hover .book-authors {
+  color: rgba(0, 176, 175, 0.65);
 }
 
 .book-title {
@@ -19,10 +30,12 @@
   font-size: 16px;
   font-weight: 400;
   margin: 0;
+  transition: 0.4s ease-in-out;
 }
 
 .book-authors {
   margin: 5px 0 0 0;
   color: rgba(132, 132, 132, 0.65);
   font-size: 14px;
+  transition: 0.4s ease-in-out;
 }
