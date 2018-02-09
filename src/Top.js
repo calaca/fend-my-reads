@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './Top.css';
 
 class Top extends Component {
   render() {
     return (
       <div className="top">
-        <h1>My Reads</h1>
+        <h1 className="top-title">My Reads</h1>
       </div>
     )
   }
