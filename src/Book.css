@@ -40,10 +40,32 @@
   transition: 0.4s ease-in-out;
 }
 
-.select-book-shelf {
+.select-book-shelf select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  text-indent: 0.1;
+  text-overflow: '';
+  padding: 5px;
   background-color: #85dEdd;
+  color: #fff;
+  border: 0;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+  margin-bottom: 10px;
+  transition: 0.4s ease-in-out;
 }
 
-.select-book-shelf select {
-  opacity: none;
+.select-book-shelf select:hover {
+  background-color: #00b0af;
+}
+
+.select-book-shelf select option:checked,
+.select-book-shelf select option:hover {
+  box-shadow: 0 0 10px 100px #019696 inset;
+}
+
+.select-book-shelf select:focus > option:checked { 
+  background: #019696 !important;
 }
