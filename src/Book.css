@@ -39,3 +39,11 @@
   font-size: 14px;
   transition: 0.4s ease-in-out;
 }
+
+.select-book-shelf {
+  background-color: #85dEdd;
+}
+
+.select-book-shelf select {
+  opacity: none;
+}

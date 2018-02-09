@@ -27,8 +27,9 @@ class BookList extends Component {
         <div className="sections">
           {
             shelves.map(shelf => (
-              <Section shelf={shelf.title} key={shelf.name}
+              <Section shelves={shelves} shelf={shelf.title} key={shelf.name}
                 books={books.filter(book => (book.shelf === shelf.name))}
+                onHandleChange={this.props.onHandleChange}
               />
             ))
           }

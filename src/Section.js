@@ -11,7 +11,7 @@ class Section extends Component {
         <h2 className="section-title">{this.props.shelf}</h2>
         {
           books.map(book => (
-            <Book key={book.id} book={book} />
+            <Book shelves={this.props.shelves} key={book.id} book={book} onHandleChange={this.props.onHandleChange} />
           ))
         }
       </section>
