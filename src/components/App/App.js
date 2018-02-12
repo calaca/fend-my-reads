@@ -23,30 +23,35 @@ class App extends Component {
     ]
   }
 
+  /**
+  * @description Fetches all books from the API
+  */
   componentDidMount() {
     BooksAPI.getAll()
       .then(books => this.setState({ books }));
   }
 
+  /**
+  * @description Updates the book's shelf
+  * @param {Event} event - The onChange event
+  * @param {string} book - The book that triggered the event
+  */
   handleChange(event, book) {
-    // prepare book to be updated
     let books = this.state.books.map(b => {
       if (b.id === book.id) {
         b.shelf = event.target.value;
       }
       return b;
     });
-    // update book locally
     this.setState({ books });
-    // update book remotely
     BooksAPI.update(book, book.shelf);
   }
 
   render() {
     return (
       <div className="App">
-        <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
-        <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+          <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
+          <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
       </div>
     );
   }

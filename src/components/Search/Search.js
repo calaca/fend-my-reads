@@ -11,6 +11,10 @@ class Search extends Component {
     query: ''
   }
 
+  /**
+  * @description Updates the search query
+  * @param {string} query - The search query
+  */
   updateQuery(query) {
     this.setState({
       query: query.trim()

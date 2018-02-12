@@ -26,6 +26,7 @@ Open a terminal at the project root and run `npm install` to install all depende
 
 - `npm run start`: runs the app in development mode
 - `npm run test`: runs the test watcher in an interactive mode
+- `npm run test:coverage`: runs tests and a coverage report
 - `npm run build`: builds the app for production to the `build` folder
 - `npm run eject`: ejects the app so you have full control over configuration files and the transitive dependencies
 

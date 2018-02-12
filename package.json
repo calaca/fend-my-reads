@@ -14,6 +14,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
+    "test:coverage": "npm run test -- --coverage",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "jest-fetch-mock": "^1.4.1"
   }
 }
