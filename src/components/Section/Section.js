@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Book from '../Book/Book';
 import './Section.css';
 
@@ -15,5 +16,12 @@ const Section = (props) => {
     </section>
   )
 }
+
+Section.propTypes = {
+  books: PropTypes.array.isRequired,
+  shelves: PropTypes.array.isRequired,
+  shelf: PropTypes.string.isRequired,
+  onHandleChange: PropTypes.func.isRequired
+};
 
 export default Section;

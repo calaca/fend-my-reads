@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 import Book from '../Book/Book';
@@ -68,5 +69,13 @@ class Search extends Component {
     )
   }
 }
+
+Search.propTypes = {
+  data: PropTypes.shape({
+    books: PropTypes.array.isRequired,
+    shelves: PropTypes.array.isRequired
+  }),
+  onHandleChange: PropTypes.func.isRequired
+};
 
 export default Search;
