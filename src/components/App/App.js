@@ -23,7 +23,8 @@ class App extends Component {
         name: 'read',
         title: 'read'
       }
-    ]
+    ],
+    loading: true
   }
 
   /**
@@ -31,7 +32,7 @@ class App extends Component {
   */
   componentDidMount() {
     BooksAPI.getAll()
-      .then(books => this.setState({ books }));
+      .then(books => this.setState({ books, loading: false }));
   }
 
   /**
@@ -51,14 +52,29 @@ class App extends Component {
   }
 
   render() {
+    const { loading } = this.state;
+    let content;
+
+    if (loading) {
+      content = 
+        <div className="loading-wrapper">
+          <div className="loading"></div>
+          <div className="text">Loading app...</div>
+        </div>;
+    } else {
+      content =
+        <div>
+          <Switch>
+            <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+            <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </div>;
+    }
     return (
       <div className="App">
-        <Switch>
-          <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
-          <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
-          <Route component={NotFound} />
-        </Switch>
-        <Footer />
+        {content}
       </div>
     );
   }
