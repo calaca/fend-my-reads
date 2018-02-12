@@ -12,6 +12,6 @@ const Top = () => {
       </Link>
     </div>
   )
-}
+};
 
 export default Top;

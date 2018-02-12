@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import BookList from '../BookList/BookList';
 import Search from '../Search/Search';
+import NotFound from '../NotFound/NotFound';
 import Footer from '../Footer/Footer';
 import * as BooksAPI from '../../utils/BooksAPI';
+import './App.css';
 
 class App extends Component {
   state = {
@@ -51,12 +53,15 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
-        <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+        <Switch>
+          <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
+          <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+          <Route component={NotFound} />
+        </Switch>
         <Footer />
       </div>
     );
   }
-}
+};
 
 export default App;

@@ -2,9 +2,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  /* background-color: #fff; */
   background-color: #f3f9fA;
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  position: relative;
 }
 
 * {

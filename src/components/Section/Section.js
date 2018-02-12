@@ -15,7 +15,7 @@ const Section = (props) => {
       }
     </section>
   )
-}
+};
 
 Section.propTypes = {
   books: PropTypes.array.isRequired,

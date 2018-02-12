@@ -21,7 +21,7 @@ const BookList = (props) => {
       </div>
     </div>
   )
-}
+};
 
 BookList.propTypes = {
   data: PropTypes.shape({

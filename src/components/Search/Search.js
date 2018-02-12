@@ -68,7 +68,7 @@ class Search extends Component {
       </div>
     )
   }
-}
+};
 
 Search.propTypes = {
   data: PropTypes.shape({
