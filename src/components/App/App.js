@@ -69,6 +69,8 @@ class App extends Component {
   render() {
     const { loading } = this.state;
     let content;
+    // It is needed two paths for the root link so the local server and gh-pages deploy will route correctly
+    const paths = ['/', '/fend-my-reads'];
 
     if (loading) {
       content = 
@@ -80,7 +82,11 @@ class App extends Component {
       content =
         <div>
           <Switch>
-          <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
+            {
+              paths.map(path => (
+                <Route exact path={path} render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
+              ))
+            }
           <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
             <Route component={NotFound} />
           </Switch>
