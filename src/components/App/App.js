@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import BookList from '../BookList/BookList';
 import Search from '../Search/Search';
+import Footer from '../Footer/Footer';
 import * as BooksAPI from '../../utils/BooksAPI';
 
 class App extends Component {
@@ -52,6 +53,7 @@ class App extends Component {
       <div className="App">
         <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} /> )} />
         <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+        <Footer />
       </div>
     );
   }
