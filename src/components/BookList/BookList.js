@@ -14,7 +14,7 @@ const BookList = (props) => {
           shelves.map(shelf => (
             <Section shelves={shelves} shelf={shelf.title} key={shelf.name}
               books={books.filter(book => (book.shelf === shelf.name))}
-              onHandleChange={props.onHandleChange}
+              onHandleChange={props.onHandleChange} onStarClick={props.onStarClick}
             />
           ))
         }
@@ -28,7 +28,8 @@ BookList.propTypes = {
     books: PropTypes.array.isRequired,
     shelves: PropTypes.array.isRequired
   }),
-  onHandleChange: PropTypes.func.isRequired
+  onHandleChange: PropTypes.func.isRequired,
+  onStarClick: PropTypes.func.isRequired
 };
 
 

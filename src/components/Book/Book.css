@@ -6,6 +6,10 @@
   cursor: pointer;
 }
 
+.book-ratings {
+  margin-bottom: 10px;
+}
+
 .book-cover {
   filter: grayscale(100%);
   box-shadow:0;

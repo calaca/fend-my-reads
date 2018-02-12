@@ -38,7 +38,7 @@ class App extends Component {
   /**
   * @description Updates the book's shelf
   * @param {Event} event - The onChange event
-  * @param {string} book - The book that triggered the event
+  * @param {object} book - The book that triggered the event
   */
   handleChange(event, book) {
     let books = this.state.books.map(b => {
@@ -49,6 +49,21 @@ class App extends Component {
     });
     this.setState({ books });
     BooksAPI.update(book, book.shelf);
+  }
+
+  /**
+  * @description Updates the book's star rating - only works locally because the API doesn't provide a method to update the book itself, just its shelf
+  * @param {number} value - The new number of stars
+  * @param {object} book - The book that triggered the event
+  */
+  starClick(value, book) {
+    let books = this.state.books.map(b => {
+      if (b.id === book.id) {
+        b.rating = value;
+      }
+      return b;
+    });
+    this.setState({ books });
   }
 
   render() {
@@ -65,8 +80,8 @@ class App extends Component {
       content =
         <div>
           <Switch>
-            <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
-            <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} />)} />
+          <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
+          <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
             <Route component={NotFound} />
           </Switch>
           <Footer />

@@ -61,7 +61,7 @@ class Search extends Component {
           }
           {
             showingBooks.map(book => (
-              <Book shelves={shelves} key={book.id} book={book} onHandleChange={this.props.onHandleChange} />
+              <Book shelves={shelves} key={book.id} book={book} onHandleChange={this.props.onHandleChange} onStarClick={this.props.onStarClick} />
             ))
           }
         </div>
@@ -75,7 +75,8 @@ Search.propTypes = {
     books: PropTypes.array.isRequired,
     shelves: PropTypes.array.isRequired
   }),
-  onHandleChange: PropTypes.func.isRequired
+  onHandleChange: PropTypes.func.isRequired,
+  onStarClick: PropTypes.func.isRequired
 };
 
 export default Search;

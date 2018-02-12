@@ -10,7 +10,7 @@ const Section = (props) => {
       <h2 className="section-title">{props.shelf}</h2>
       {
         books.map(book => (
-          <Book shelves={props.shelves} key={book.id} book={book} onHandleChange={props.onHandleChange} />
+          <Book shelves={props.shelves} key={book.id} book={book} onHandleChange={props.onHandleChange} onStarClick={props.onStarClick} />
         ))
       }
     </section>
@@ -21,7 +21,8 @@ Section.propTypes = {
   books: PropTypes.array.isRequired,
   shelves: PropTypes.array.isRequired,
   shelf: PropTypes.string.isRequired,
-  onHandleChange: PropTypes.func.isRequired
+  onHandleChange: PropTypes.func.isRequired,
+  onStarClick: PropTypes.func.isRequired
 };
 
 export default Section;

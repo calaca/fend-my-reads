@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReactStars from 'react-stars'
 import './Book.css';
 
 const Book = (props) => {
@@ -16,6 +17,17 @@ const Book = (props) => {
             ))
           }
         </select>
+      </div>
+      <div className="book-ratings">
+        <ReactStars
+          count={5}
+          size={20}
+          value={book.rating}
+          color1="#9c9c9c"
+          color2="#f1c40f"
+          half={false}
+          onChange={(value) => props.onStarClick(value, book)}
+        />
       </div>
       <img
         className="book-cover"
@@ -36,7 +48,8 @@ const Book = (props) => {
 Book.propTypes = {
   book: PropTypes.object.isRequired,
   shelves: PropTypes.array.isRequired,
-  onHandleChange: PropTypes.func.isRequired
+  onHandleChange: PropTypes.func.isRequired,
+  onStarClick: PropTypes.func.isRequired
 };
 
 export default Book;
