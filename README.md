@@ -29,6 +29,8 @@ Open a terminal at the project root and run `npm install` to install all depende
 - `npm run test:coverage`: runs tests and a coverage report
 - `npm run build`: builds the app for production to the `build` folder
 - `npm run eject`: ejects the app so you have full control over configuration files and the transitive dependencies
+- `npm run predeploy`: builds the app before deploying
+- `npm run deploy`: deploys the app to GitHub Pages
 
 ## Running the project
 
@@ -43,7 +45,15 @@ Click [here](https://calaca.github.io/fend-my-reads/) for the live version of th
 
 ## Deployment
 
-**Add additional notes about how to deploy this on a live system**
+### Locally
+
+1. Run `npm run build`
+3. Simply run `serve -s build` to run it on a local server
+
+### GitHub Pages
+
+1. Run `npm run deploy`
+2. Access http://myname.github.io/myapp
 
 ## Built With
 

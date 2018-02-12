@@ -2,6 +2,7 @@
   "name": "fend-my-reads",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://calaca.github.io/fend-my-reads",
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
     "prop-types": "^15.6.0",
@@ -17,7 +18,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "test:coverage": "npm run test -- --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "jest-fetch-mock": "^1.4.1"
