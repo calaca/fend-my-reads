@@ -1,6 +1,6 @@
 # My Reads
 
-[![FEND nanodegree](https://img.shields.io/badge/udacity-FEND-02b3e4.svg?style=flat-square)](https://udacity.com/course/front-end-web-developer-nanodegree--nd001/)
+[![FEND nanodegree](https://img.shields.io/badge/udacity-FEND-02b3e4.svg?style=flat-square)](https://udacity.com/course/front-end-web-developer-nanodegree--nd001/) [![Build Status](https://travis-ci.org/calaca/fend-my-reads.svg?branch=master)](https://travis-ci.org/calaca/fend-my-reads)
 
 > A book shelf made with React and React Router.
 
