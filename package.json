@@ -13,7 +13,7 @@
       }
     },
     "coverageReporters": [
-      "text"
+      "html"
     ]
   },
   "dependencies": {

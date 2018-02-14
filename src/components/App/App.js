@@ -4,6 +4,7 @@ import BookList from '../BookList/BookList';
 import Search from '../Search/Search';
 import NotFound from '../NotFound/NotFound';
 import Footer from '../Footer/Footer';
+import Loading from '../Loading/Loading';
 import * as BooksAPI from '../../utils/BooksAPI';
 import './App.css';
 
@@ -71,11 +72,7 @@ class App extends Component {
     let content;
 
     if (loading) {
-      content = 
-        <div className="loading-wrapper">
-          <div className="loading"></div>
-          <div className="text">Loading app...</div>
-        </div>;
+      content = <Loading />;
     } else {
       content =
         <div>
