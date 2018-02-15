@@ -76,7 +76,7 @@ Search.propTypes = {
   data: PropTypes.shape({
     books: PropTypes.array.isRequired,
     shelves: PropTypes.array.isRequired
-  }),
+  }).isRequired,
   onHandleChange: PropTypes.func.isRequired,
   onStarClick: PropTypes.func.isRequired
 };

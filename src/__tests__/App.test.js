@@ -7,11 +7,15 @@ import { body, init } from '../__mocks__/MockData';
 import Loading from '../components/Loading/Loading';
 import MainContent from '../components/MainContent/MainContent';
 
-
 describe('<App />', () => {
   it('renders without crashing', () => {
     fetch.mockResponse(JSON.stringify(body), { init });
     shallow(<MemoryRouter><App /></MemoryRouter>);
+  });
+
+  it('renders correctly', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper).toMatchSnapshot();
   });
   
   it('calls componentDidMount', () => {
@@ -31,6 +35,8 @@ describe('<App />', () => {
     wrapper.setState({ loading: false });
     expect(wrapper.find(MainContent)).toHaveLength(1);
   });
+
+  // FIXME: how to test App's event handlers?
 });
 
 /**
@@ -45,4 +51,6 @@ describe('<App />', () => {
  * ===
  * Enzyme was used here to test components in isolation from the child components they render.
  * Source: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#testing-components
+ * Snapshot Testing
+ * Source: https://facebook.github.io/jest/docs/en/snapshot-testing.html
  */

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { MemoryRouter } from 'react-router-dom';
-import { mount } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import MainContent from '../components/MainContent/MainContent';
 import BookList from '../components/BookList/BookList';
 import Search from '../components/Search/Search';
@@ -16,9 +16,18 @@ describe('<MainContent />', () => {
     starClick = jest.fn();
   });
 
-  afterAll(() => {
-    handleChange.clearMock();
-    starClick.clearMock();
+  afterEach(() => {
+    handleChange.mockClear();
+    starClick.mockClear();
+  });
+
+  it('renders without crashing', () => {
+    shallow(<MainContent data={body} onHandleChange={handleChange} onStarClick={starClick} />);
+  });
+
+  it('renders correctly', () => {
+    const wrapper = shallow(<MainContent data={body} onHandleChange={handleChange} onStarClick={starClick} />);
+    expect(wrapper).toMatchSnapshot();
   });
 
   it('renders <BookList /> when path is `/`', () => {
