@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
-import BookList from '../BookList/BookList';
-import Search from '../Search/Search';
-import NotFound from '../NotFound/NotFound';
-import Footer from '../Footer/Footer';
 import Loading from '../Loading/Loading';
+import MainContent from '../MainContent/MainContent';
 import * as BooksAPI from '../../utils/BooksAPI';
 import './App.css';
 
@@ -74,15 +70,12 @@ class App extends Component {
     if (loading) {
       content = <Loading />;
     } else {
-      content =
-        <div>
-          <Switch>
-            <Route exact path="/" render={() => (<BookList data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
-            <Route path="/search" render={() => (<Search data={this.state} onHandleChange={this.handleChange.bind(this)} onStarClick={this.starClick.bind(this)} />)} />
-            <Route component={NotFound} />
-          </Switch>
-          <Footer />
-        </div>;
+      content = 
+        <MainContent 
+          data={this.state}
+          onHandleChange={this.handleChange.bind(this)}
+          onStarClick={this.starClick.bind(this)}
+        />;
     }
     return (
       <div className="App">

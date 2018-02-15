@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import escapeRegExp from 'escape-string-regexp';
 import sortBy from 'sort-by';
 import Book from '../Book/Book';
+import Footer from '../Footer/Footer';
 import arrow from '../../icons/right-arrow.svg';
 import './Search.css';
 
@@ -65,6 +66,7 @@ class Search extends Component {
             ))
           }
         </div>
+        <Footer />
       </div>
     )
   }

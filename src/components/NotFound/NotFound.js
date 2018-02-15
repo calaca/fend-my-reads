@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Footer from '../Footer/Footer';
 import arrow from '../../icons/right-arrow.svg'
 import './NotFound.css';
 
@@ -15,6 +16,7 @@ const NotFound = () => {
         <span className="big">404</span>
         <span className="small">page not found</span>
       </div>
+      <Footer />
     </div>
   )
 };

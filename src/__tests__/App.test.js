@@ -1,16 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { MemoryRouter, Switch } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { shallow, mount } from 'enzyme';
 import App from '../components/App/App';
 import { body, init } from '../__mocks__/MockData';
-import Footer from '../components/Footer/Footer';
 import Loading from '../components/Loading/Loading';
-import NotFound from '../components/NotFound/NotFound';
-import Search from '../components/Search/Search';
-import BookList from '../components/BookList/BookList';
+import MainContent from '../components/MainContent/MainContent';
 
-describe('App', () => {
+
+describe('<App />', () => {
   it('renders without crashing', () => {
     fetch.mockResponse(JSON.stringify(body), { init });
     shallow(<MemoryRouter><App /></MemoryRouter>);
@@ -23,28 +21,15 @@ describe('App', () => {
     spy.mockClear();
   });
 
-  it('displays Loading while data is still loading', () => {
+  it('displays <Loading /> while data is still loading', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find(Loading)).toHaveLength(1);
   });
 
-  it('renders Footer when the page is loaded', () => {
-    const wrapper = shallow(<App />).setState({ loading: false });
-    expect(wrapper.find(Footer)).toHaveLength(1);
-  });
-
-  /**
-   * FIXME: issues with shallow and full render to test this
-   * shallow: Switch throws an error saying that it doesn't have a Router
-   * mount: can't update App's state to stop showing the Loading component
-   */
-  it.skip('renders Search when the correct URL is provided', () => {
-    const wrapper = mount(
-      <MemoryRouter initialEntries={['/search']} initialIndex={1}>
-        <App />
-      </MemoryRouter>
-    ).find(App);
-    expect(wrapper.find(Search)).toHaveLength(1);
+  it('displays <MainContent /> when data finishes loading', () => {
+    const wrapper = shallow(<App />);
+    wrapper.setState({ loading: false });
+    expect(wrapper.find(MainContent)).toHaveLength(1);
   });
 });
 

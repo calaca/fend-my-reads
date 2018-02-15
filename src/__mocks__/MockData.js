@@ -48,7 +48,22 @@ const body = {
       id: "nggnmAEACAAJ",
       shelf: "currentlyReading"
     }
-  ]
+  ],
+  shelves: [
+    {
+      name: 'wantToRead',
+      title: 'want to read'
+    },
+    {
+      name: 'currentlyReading',
+      title: 'currently reading'
+    },
+    {
+      name: 'read',
+      title: 'read'
+    }
+  ],
+  loading: true
 };
 
 const init = new Headers({
