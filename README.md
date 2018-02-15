@@ -43,6 +43,11 @@ Open a terminal at the project root and run `npm install` to install all depende
 
 Click [here](https://calaca.github.io/fend-my-reads/) for the live version of this app.
 
+
+## Running the tests
+
+To run the tests type `npm run test` into your terminal to execute Jest in watch mode. Run `npm run test:coverage` to run coverage tests.
+
 ## Deployment
 
 ### Locally
