@@ -26,7 +26,11 @@ class Search extends Component {
       {
         searchBooks: res.map(book => {
           const existsBook = books.filter(b => b.id === book.id);
-          existsBook ? book.shelf = existsBook.shelf : book.shelf = 'noShelf';
+          if (existsBook) {
+            book.shelf = existsBook.shelf;
+          } else {
+            book.shelf = 'noShelf';
+          }
           return book;
         }),
         empty: false
