@@ -10,6 +10,10 @@ class App extends Component {
     books: [],
     shelves: [
       {
+        name: 'noShelf',
+        title: 'no shelf'
+      },
+      {
         name: 'wantToRead',
         title: 'want to read'
       },
@@ -58,7 +62,8 @@ class App extends Component {
   }
 
   /**
-  * @description Updates the book's star rating - only works locally because the API doesn't provide a method to update the book itself, just its shelf
+  * @description Updates the book's star rating
+  * OBS: Only works locally because the API doesn't provide a method to update the book itself, just its shelf
   * @param {number} value - The new number of stars
   * @param {object} book - The book that triggered the event
   */

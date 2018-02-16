@@ -54,3 +54,9 @@
   font-size: 14px;
   margin-bottom: 20px;
 }
+
+.valid-terms {
+  text-decoration: none;
+  font-weight: 600;
+  color: #00b0af;
+}

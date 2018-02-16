@@ -7,12 +7,13 @@ import './BookList.css';
 
 const BookList = (props) => {
   const { books, shelves } = props.data;
+  const filteredShelves = shelves.filter(shelf => shelf.name !== 'noShelf');
   return (
     <div className="book-list">
       <Top />
       <div className="sections">
         {
-          shelves.map(shelf => (
+          filteredShelves.map(shelf => (
             <Section shelves={shelves} shelf={shelf.title} key={shelf.name}
               books={books.filter(book => (book.shelf === shelf.name))}
               onHandleChange={props.onHandleChange} onStarClick={props.onStarClick}

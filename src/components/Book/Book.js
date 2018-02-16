@@ -7,6 +7,15 @@ const Book = (props) => {
   const book = props.book;
   const shelves = props.shelves;
 
+  // Handling books with no author/cover image
+  const authors = book.authors || ['No author info'];
+  let cover;
+  if (typeof book.imageLinks === 'undefined') {
+    cover = 'http://via.placeholder.com/350x150';
+  } else {
+    cover = book.imageLinks.thumbnail;
+  }
+
   return (
     <div className="book">
       <div className="select-book-shelf">
@@ -29,15 +38,16 @@ const Book = (props) => {
           onChange={(value) => props.onStarClick(value, book)}
         />
       </div>
-      <img
+      {
+        <img
         className="book-cover"
-        src={book.imageLinks.thumbnail}
+        src={cover}
         alt={book.title}
         title={book.title}
-      />
+      /> }
       <p className="book-title">{book.title}</p>
       {
-        book['authors'].map(author => (
+        authors.map(author => (
           <p key={author} className="book-authors">{author}</p>
         ))
       }
