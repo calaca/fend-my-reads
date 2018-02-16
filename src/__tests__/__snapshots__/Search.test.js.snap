@@ -99,10 +99,10 @@ ShallowWrapper {
                     to="/"
           >
                     <img
-                              alt="Voltar"
+                              alt="back"
                               className="back-icon"
                               src="right-arrow.svg"
-                              title="Voltar"
+                              title="back"
                     />
           </Link>
           <input
@@ -151,10 +151,10 @@ ShallowWrapper {
               to="/"
 >
               <img
-                            alt="Voltar"
+                            alt="back"
                             className="back-icon"
                             src="right-arrow.svg"
-                            title="Voltar"
+                            title="back"
               />
 </Link>,
             <input
@@ -175,10 +175,10 @@ ShallowWrapper {
             "nodeType": "class",
             "props": Object {
               "children": <img
-                alt="Voltar"
+                alt="back"
                 className="back-icon"
                 src="right-arrow.svg"
-                title="Voltar"
+                title="back"
 />,
               "className": "back-link",
               "replace": false,
@@ -190,10 +190,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "alt": "Voltar",
+                "alt": "back",
                 "className": "back-icon",
                 "src": "right-arrow.svg",
-                "title": "Voltar",
+                "title": "back",
               },
               "ref": null,
               "rendered": null,
@@ -345,10 +345,10 @@ ShallowWrapper {
                         to="/"
             >
                         <img
-                                    alt="Voltar"
+                                    alt="back"
                                     className="back-icon"
                                     src="right-arrow.svg"
-                                    title="Voltar"
+                                    title="back"
                         />
             </Link>
             <input
@@ -397,10 +397,10 @@ ShallowWrapper {
                 to="/"
 >
                 <img
-                                alt="Voltar"
+                                alt="back"
                                 className="back-icon"
                                 src="right-arrow.svg"
-                                title="Voltar"
+                                title="back"
                 />
 </Link>,
               <input
@@ -421,10 +421,10 @@ ShallowWrapper {
               "nodeType": "class",
               "props": Object {
                 "children": <img
-                  alt="Voltar"
+                  alt="back"
                   className="back-icon"
                   src="right-arrow.svg"
-                  title="Voltar"
+                  title="back"
 />,
                 "className": "back-link",
                 "replace": false,
@@ -436,10 +436,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "alt": "Voltar",
+                  "alt": "back",
                   "className": "back-icon",
                   "src": "right-arrow.svg",
-                  "title": "Voltar",
+                  "title": "back",
                 },
                 "ref": null,
                 "rendered": null,
