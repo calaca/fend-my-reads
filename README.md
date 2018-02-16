@@ -52,8 +52,8 @@ To run the tests type `npm run test` into your terminal to execute Jest in watch
 
 ### Locally
 
-1. Run `npm run build`
-3. Simply run `serve -s build` to run it on a local server
+1. Run `export PUBLIC_URL=/ && npm build && serve -s build`
+2. Paste the URL on your browser
 
 ### GitHub Pages
 
