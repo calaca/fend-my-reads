@@ -69,7 +69,7 @@ class Search extends Component {
       <div className="search">
         <div className="search-box-wrapper">
           <Link to="/" className="back-link">
-            <img src={arrow} alt="Voltar" title="Voltar" className="back-icon" />
+            <img src={arrow} alt="back" title="back" className="back-icon" />
           </Link>
           <input 
             type="text"
