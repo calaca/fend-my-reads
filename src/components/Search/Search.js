@@ -6,6 +6,7 @@ import sortBy from 'sort-by';
 import Book from '../Book/Book';
 import Footer from '../Footer/Footer';
 import arrow from '../../icons/right-arrow.svg';
+import { search } from '../../utils/BooksAPI';
 import './Search.css';
 
 class Search extends Component {
@@ -18,14 +19,12 @@ class Search extends Component {
   * @param {string} query - The search query
   */
   updateQuery(query) {
-    this.setState({
-      query: query.trim()
-    });
+    this.setState({ query: query.trim() });
   }
 
   render() {
     const { books, shelves } = this.props.data;
-    const query = this.state.query;
+    let { query } = this.state;
     let showingBooks;
 
     if (query) {

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Loading from '../Loading/Loading';
 import MainContent from '../MainContent/MainContent';
-import * as BooksAPI from '../../utils/BooksAPI';
+import { getAll, update } from '../../utils/BooksAPI';
+import sortBy from 'sort-by';
 import './App.css';
 
 class App extends Component {
@@ -28,8 +29,12 @@ class App extends Component {
   * @description Fetches all books from the API
   */
   componentDidMount() {
-    BooksAPI.getAll()
-      .then(books => this.setState({ books, loading: false }));
+    getAll()
+      .then(books => {
+        books.sort(sortBy('title'));
+        this.setState({ books, loading: false });
+      }
+    );
   }
 
   /**
@@ -37,15 +42,19 @@ class App extends Component {
   * @param {Event} event - The onChange event
   * @param {object} book - The book that triggered the event
   */
-  handleChange(event, book) {
-    let books = this.state.books.map(b => {
-      if (b.id === book.id) {
-        b.shelf = event.target.value;
+  handleChange(event, updatedBook) {
+    const shelf = event.target.value;
+    let newBooks = [];
+
+    update(updatedBook, shelf)
+      .then(res => {
+        updatedBook.shelf = shelf;
+        newBooks = this.state.books.filter(b => b.id !== updatedBook.id);
+        newBooks.push(updatedBook);
+        newBooks.sort(sortBy('title'));
+        this.setState({ books: newBooks });
       }
-      return b;
-    });
-    this.setState({ books });
-    BooksAPI.update(book, book.shelf);
+    );
   }
 
   /**
@@ -54,13 +63,11 @@ class App extends Component {
   * @param {object} book - The book that triggered the event
   */
   starClick(value, book) {
-    let books = this.state.books.map(b => {
-      if (b.id === book.id) {
-        b.rating = value;
-      }
-      return b;
-    });
-    this.setState({ books });
+    book.rating = value;
+    let newBooks = this.state.books.filter(b => b.id !== book.id);
+    newBooks.push(book);
+    newBooks.sort(sortBy('title'));
+    this.setState({ books: newBooks });
   }
 
   render() {
