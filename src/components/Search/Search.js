@@ -79,17 +79,17 @@ class Search extends Component {
           <div className="showing-books">
             {
               empty && (
-                <span>Invalid search term. Click <a href={searchTerms} className="valid-terms">here</a> for a list of valid search terms.</span>
+                <span className="empty-results">Invalid search term. Click <a href={searchTerms} className="valid-terms">here</a> for a list of valid search terms.</span>
               )
             }
             {
               !empty && searchBooks.length === 0 && (
-                <span>Type something to look for books. Click <a href={searchTerms} className="valid-terms">here</a> for a list of valid search terms.</span>
+                <span className="no-results">Type something to look for books. Click <a href={searchTerms} className="valid-terms">here</a> for a list of valid search terms.</span>
               )
             }
             {
               !empty && searchBooks.length !== 0 && (
-                  <span>The API has found <strong>{searchBooks.length}</strong> results.</span>
+                  <span className="has-results">The API has found <strong>{searchBooks.length}</strong> results.</span>
               )
             }
           </div>

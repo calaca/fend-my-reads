@@ -38,19 +38,3 @@ describe('<App />', () => {
 
   // FIXME: how to test App's event handlers?
 });
-
-/**
- * NOTES:
- * 
- * fetch.mockResponse(body, init) - Mock all fetch calls
- * Source: https://github.com/jefflau/jest-fetch-mock#using-with-create-react-app
- * ===
- * A <Router> that keeps the history of your "URL" in memory (does not read or write to the address bar). Useful in tests and non-browser environments like React Native.
- * This was necessary because App's Routes needed a wrapping Router.
- * Source: https://github.com/ReactTraining/react-router/blob/master/packages/react-router/docs/api/MemoryRouter.md#memoryrouter
- * ===
- * Enzyme was used here to test components in isolation from the child components they render.
- * Source: https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md#testing-components
- * Snapshot Testing
- * Source: https://facebook.github.io/jest/docs/en/snapshot-testing.html
- */

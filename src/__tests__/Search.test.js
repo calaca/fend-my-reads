@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { MemoryRouter } from 'react-router-dom';
-import { shallow, mount } from 'enzyme';
+import { shallow } from 'enzyme';
 import Search from '../components/Search/Search';
+import Book from '../components/Book/Book';
 import { body } from '../__mocks__/MockData';
 
 describe('<Search />', () => {
@@ -27,9 +27,30 @@ describe('<Search />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('updates `state.query` when input changes', () => {
-    const input = wrapper.find('.search-books');
-    input.simulate('change', { target: { value: 'react' } });
-    expect(wrapper.state().query).toEqual('react');
+  it('input\'s value changes when `state.query` changes', () => {
+    wrapper.setState({ query: 'react' });
+    expect(wrapper.find('.search-books').props().value).toEqual('react');
   });
+
+  it('renders a message when there are no books to show', () => {
+    wrapper.setState({ empty: true });
+    expect(wrapper.find('.empty-results')).toHaveLength(1);
+  });
+
+  it('renders a message when there are no results', () => {
+    wrapper.setState({ searchBooks: [], empty: false });
+    expect(wrapper.find('.no-results')).toHaveLength(1);
+  });
+
+  it('renders a message when there are valid results', () => {
+    wrapper.setState({ searchBooks: body.books, empty: false });
+    expect(wrapper.find('.has-results')).toHaveLength(1);
+  });
+
+  it('renders at least one <Book />', () => {
+    wrapper.setState({ searchBooks: body.books, empty: false });
+    expect(wrapper.find(Book)).toHaveLength(1);
+  });
+
+  // FIXME: how to test Search's event handlers?
 });
