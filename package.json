@@ -29,6 +29,7 @@
     "react-scripts": "1.1.0",
     "react-stars": "^2.2.5",
     "react-test-renderer": "^16.2.0",
+    "react-throttle": "^0.3.0",
     "sort-by": "^1.2.0"
   },
   "scripts": {

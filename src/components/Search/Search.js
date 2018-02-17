@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Debounce } from 'react-throttle';
 import PropTypes from 'prop-types';
 import Book from '../Book/Book';
 import Footer from '../Footer/Footer';
@@ -16,8 +17,8 @@ class Search extends Component {
 
   /**
   * @description Checks the book's shelf property and updates it correctly:
-  * New book on the shelf = no shelf
-  * Book already in a shelf = current shelf
+  * New book on the shelf = no shelf and no rating
+  * Book already in a shelf = current shelf and current rating
   * @param {string} query - The search query
   */
   prepareBook(res) {
@@ -26,7 +27,13 @@ class Search extends Component {
       {
         searchBooks: res.map(book => {
           const existsBook = books.find(b => b.id === book.id);
-          existsBook ? book.shelf = existsBook.shelf : book.shelf = 'noShelf';
+          if (existsBook) {
+            book.shelf = existsBook.shelf;
+            book.rating = existsBook.rating;
+          } else {
+            book.shelf = 'noShelf';
+            book.rating = 0;
+          }
           return book;
         }),
         empty: false
@@ -57,7 +64,7 @@ class Search extends Component {
   }
 
   render() {
-    const { query, searchBooks, empty } = this.state;
+    const { searchBooks, empty } = this.state;
     const { shelves } = this.props.data;
     const searchTerms = 'https://github.com/udacity/reactnd-project-myreads-starter/blob/master/SEARCH_TERMS.md';
 
@@ -67,13 +74,14 @@ class Search extends Component {
           <Link to="/" className="back-link">
             <img src={arrow} alt="back" title="back" className="back-icon" />
           </Link>
-          <input 
-            type="text"
-            className="search-books"
-            placeholder="Search"
-            value={query}
-            onChange={event => this.updateQuery(event.target.value)}
-          />
+          <Debounce time="400" handler="onChange">
+            <input 
+              type="text"
+              className="search-books"
+              placeholder="Search"
+              onChange={event => this.updateQuery(event.target.value)}
+            />
+          </Debounce>
         </div>
         <div className="search-results">
           <div className="showing-books">
