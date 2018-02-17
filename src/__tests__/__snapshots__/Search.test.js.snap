@@ -105,13 +105,18 @@ ShallowWrapper {
                               title="back"
                     />
           </Link>
-          <input
-                    className="search-books"
-                    onChange={[Function]}
-                    placeholder="Search"
-                    type="text"
-                    value=""
-          />
+          <Debounce
+                    handler="onChange"
+                    handlers={Array []}
+                    time="400"
+          >
+                    <input
+                              className="search-books"
+                              onChange={[Function]}
+                              placeholder="Search"
+                              type="text"
+                    />
+          </Debounce>
 </div>,
         <div
           className="search-results"
@@ -157,13 +162,18 @@ ShallowWrapper {
                             title="back"
               />
 </Link>,
-            <input
-              className="search-books"
-              onChange={[Function]}
-              placeholder="Search"
-              type="text"
-              value=""
-/>,
+            <Debounce
+              handler="onChange"
+              handlers={Array []}
+              time="400"
+>
+              <input
+                            className="search-books"
+                            onChange={[Function]}
+                            placeholder="Search"
+                            type="text"
+              />
+</Debounce>,
           ],
           "className": "search-box-wrapper",
         },
@@ -204,17 +214,34 @@ ShallowWrapper {
           Object {
             "instance": null,
             "key": undefined,
-            "nodeType": "host",
+            "nodeType": "class",
             "props": Object {
-              "className": "search-books",
-              "onChange": [Function],
-              "placeholder": "Search",
-              "type": "text",
-              "value": "",
+              "children": <input
+                className="search-books"
+                onChange={[Function]}
+                placeholder="Search"
+                type="text"
+/>,
+              "handler": "onChange",
+              "handlers": Array [],
+              "time": "400",
             },
             "ref": null,
-            "rendered": null,
-            "type": "input",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "search-books",
+                "onChange": [Function],
+                "placeholder": "Search",
+                "type": "text",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            "type": [Function],
           },
         ],
         "type": "div",
@@ -351,13 +378,18 @@ ShallowWrapper {
                                     title="back"
                         />
             </Link>
-            <input
-                        className="search-books"
-                        onChange={[Function]}
-                        placeholder="Search"
-                        type="text"
-                        value=""
-            />
+            <Debounce
+                        handler="onChange"
+                        handlers={Array []}
+                        time="400"
+            >
+                        <input
+                                    className="search-books"
+                                    onChange={[Function]}
+                                    placeholder="Search"
+                                    type="text"
+                        />
+            </Debounce>
 </div>,
           <div
             className="search-results"
@@ -403,13 +435,18 @@ ShallowWrapper {
                                 title="back"
                 />
 </Link>,
-              <input
-                className="search-books"
-                onChange={[Function]}
-                placeholder="Search"
-                type="text"
-                value=""
-/>,
+              <Debounce
+                handler="onChange"
+                handlers={Array []}
+                time="400"
+>
+                <input
+                                className="search-books"
+                                onChange={[Function]}
+                                placeholder="Search"
+                                type="text"
+                />
+</Debounce>,
             ],
             "className": "search-box-wrapper",
           },
@@ -450,17 +487,34 @@ ShallowWrapper {
             Object {
               "instance": null,
               "key": undefined,
-              "nodeType": "host",
+              "nodeType": "class",
               "props": Object {
-                "className": "search-books",
-                "onChange": [Function],
-                "placeholder": "Search",
-                "type": "text",
-                "value": "",
+                "children": <input
+                  className="search-books"
+                  onChange={[Function]}
+                  placeholder="Search"
+                  type="text"
+/>,
+                "handler": "onChange",
+                "handlers": Array [],
+                "time": "400",
               },
               "ref": null,
-              "rendered": null,
-              "type": "input",
+              "rendered": Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "className": "search-books",
+                  "onChange": [Function],
+                  "placeholder": "Search",
+                  "type": "text",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              "type": [Function],
             },
           ],
           "type": "div",

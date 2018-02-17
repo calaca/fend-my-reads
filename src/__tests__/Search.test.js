@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import Search from '../components/Search/Search';
 import Book from '../components/Book/Book';
 import { body } from '../__mocks__/MockData';
@@ -27,11 +27,6 @@ describe('<Search />', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  it('input\'s value changes when `state.query` changes', () => {
-    wrapper.setState({ query: 'react' });
-    expect(wrapper.find('.search-books').props().value).toEqual('react');
-  });
-
   it('renders a message when there are no books to show', () => {
     wrapper.setState({ empty: true });
     expect(wrapper.find('.empty-results')).toHaveLength(1);
@@ -52,5 +47,16 @@ describe('<Search />', () => {
     expect(wrapper.find(Book)).toHaveLength(1);
   });
 
-  // FIXME: how to test Search's event handlers?
+  /**
+   * I have already simulated a change and checked if updateQuery gets called but code coverage keeps telling me that this function hasn't been covered. How can I cover it?
+   * The same goes to the following functions:
+   * - Search.js prepareBook
+   * - App.js handleChange and starClick
+   */
+  it('calls `updateQuery` when input value changes', () => {
+    Search.prototype.updateQuery = jest.fn();
+    const input = wrapper.find('.search-books');
+    input.simulate('change', { target: { value: 'react' } });
+    expect(Search.prototype.updateQuery).toBeCalled();
+  });
 });

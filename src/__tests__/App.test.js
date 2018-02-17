@@ -35,6 +35,4 @@ describe('<App />', () => {
     wrapper.setState({ loading: false });
     expect(wrapper.find(MainContent)).toHaveLength(1);
   });
-
-  // FIXME: how to test App's event handlers?
 });

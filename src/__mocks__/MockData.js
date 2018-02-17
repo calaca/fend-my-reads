@@ -66,9 +66,53 @@ const body = {
   loading: true
 };
 
+const missingData = {
+  books: [
+    {
+      title: "The Linux Command Line",
+      subtitle: "A Complete Introduction",
+      publisher: "No Starch Press",
+      publishedDate: "2012",
+      description: "this book has missing data",
+      industryIdentifiers: [
+        {
+          type: "ISBN_13",
+          identifier: "9781593273897"
+        },
+        {
+          type: "ISBN_10",
+          identifier: "1593273894"
+        }
+      ],
+      readingModes: {
+        text: true,
+        image: false
+      },
+      pageCount: 480,
+      printType: "BOOK",
+      categories: ["COMPUTERS"],
+      averageRating: 4,
+      ratingsCount: 2,
+      maturityRating: "NOT_MATURE",
+      allowAnonLogging: true,
+      contentVersion: "1.2.2.0.preview.2",
+      panelizationSummary: {
+        containsEpubBubbles: false,
+        containsImageBubbles: false
+      },
+      language: "en",
+      previewLink: "http://books.google.com/books?id=nggnmAEACAAJ&dq=linux&hl=&cd=3&source=gbs_api",
+      infoLink: "https://play.google.com/store/books/details?id=nggnmAEACAAJ&source=gbs_api",
+      canonicalVolumeLink: "https://market.android.com/details?id=book-nggnmAEACAAJ",
+      id: "nggnmAEACAAJ",
+      shelf: "currentlyReading"
+    }
+  ]
+};
+
 const init = new Headers({
   Accept: 'application/json',
   Authorization: localStorage.token = Math.random().toString(36).substr(-8)
 });
 
-export { body, init };
+export { body, missingData, init };
