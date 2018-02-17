@@ -57,6 +57,6 @@ describe('<Search />', () => {
     Search.prototype.updateQuery = jest.fn();
     const input = wrapper.find('.search-books');
     input.simulate('change', { target: { value: 'react' } });
-    expect(Search.prototype.updateQuery).toBeCalled();
+    expect(Search.prototype.updateQuery).toHaveBeenCalled();
   });
 });
