@@ -45,7 +45,7 @@ class Search extends Component {
     if (query) {
       search(query)
         .then(res => {
-          if (res.length) {
+          if (!res.error) {
             this.prepareBook(res);
           } else {
             this.setState({ searchBooks: [], empty: true });
