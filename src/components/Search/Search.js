@@ -25,7 +25,7 @@ class Search extends Component {
     this.setState(
       {
         searchBooks: res.map(book => {
-          const existsBook = books.filter(b => b.id === book.id);
+          const existsBook = books.find(b => b.id === book.id);
           existsBook ? book.shelf = existsBook.shelf : book.shelf = 'noShelf';
           return book;
         }),
