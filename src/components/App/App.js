@@ -46,7 +46,7 @@ class App extends Component {
   * @param {Event} event - The onChange event
   * @param {object} book - The book that triggered the event
   */
-  handleChange(event, updatedBook) {
+  handleChange = (event, updatedBook) => {
     const shelf = event.target.value;
     let newBooks = [];
 
@@ -67,7 +67,7 @@ class App extends Component {
   * @param {number} value - The new number of stars
   * @param {object} book - The book that triggered the event
   */
-  starClick(value, book) {
+  starClick = (value, book) => {
     book.rating = value;
     let newBooks = this.state.books.filter(b => b.id !== book.id);
     newBooks.push(book);
@@ -85,8 +85,8 @@ class App extends Component {
       content = 
         <MainContent 
           data={this.state}
-          onHandleChange={this.handleChange.bind(this)}
-          onStarClick={this.starClick.bind(this)}
+          onHandleChange={this.handleChange}
+          onStarClick={this.starClick}
         />;
     }
     return (

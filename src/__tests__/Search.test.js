@@ -47,12 +47,6 @@ describe('<Search />', () => {
     expect(wrapper.find(Book)).toHaveLength(1);
   });
 
-  /**
-   * I have already simulated a change and checked if updateQuery gets called but code coverage keeps telling me that this function hasn't been covered. How can I cover it?
-   * The same goes to the following functions:
-   * - Search.js prepareBook
-   * - App.js handleChange and starClick
-   */
   it('calls `updateQuery` when input value changes', () => {
     Search.prototype.updateQuery = jest.fn();
     const input = wrapper.find('.search-books');
